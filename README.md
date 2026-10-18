@@ -5,15 +5,20 @@ App web (se abre desde un link y se puede instalar en el celular) con el cronogr
 - **App pública:** `/`. Tiene cuatro pantallas: Hoy, Días, Avisos e Info.
 - **Panel de administración:** `/administrador`. No está enlazado desde la app y se entra con contraseña.
 
-La contraseña está escrita en `supabase/migrations/20261018000000_gira.sql` (función `clave_ok`) y la verifica la base de datos.
+La contraseña **no está en el código**: en Supabase se guarda solo su hash (bcrypt), en la tabla `ajustes`, y la base la verifica.
 
 ## Puesta en marcha (una sola vez)
 
-1. **Supabase**: en el proyecto `gvokucecvdhjhwvktlut` entrar a **SQL Editor → New query**, pegar todo el contenido de `supabase/migrations/20261018000000_gira.sql` y tocar **Run**. Con la CLI, `supabase link --project-ref gvokucecvdhjhwvktlut` y después `supabase db push` hacen lo mismo.
+1. **Supabase**: en el proyecto `gvokucecvdhjhwvktlut` entrar a **SQL Editor → New query**, pegar todo el contenido de `supabase/migrations/20261018000000_gira.sql` y tocar **Run**. Después, en otra consulta, definir la contraseña del panel (cambiando `NUEVA_CLAVE`):
+   ```sql
+   insert into public.ajustes (id, clave_hash) values (1, crypt('NUEVA_CLAVE', gen_salt('bf')))
+   on conflict (id) do update set clave_hash = excluded.clave_hash;
+   ```
+   Mientras no se defina, nadie puede entrar al panel.
 2. **Vercel**: **Add New → Project**, importar este repositorio y hacer **Deploy**. No hace falta configurar variables: la URL de Supabase y la clave publishable están en `lib/store.js`.
 3. Entrar a `https://<tu-dominio>/administrador` y guardar una vez. Mientras la base está vacía, la app usa el programa tentativo cargado en `lib/seed.js`.
 
-Para cambiar la contraseña: editar `clave_ok` en el SQL y volver a correr solo esa función en el SQL Editor.
+Para cambiar la contraseña: volver a correr esa misma consulta con la contraseña nueva.
 
 ## Cómo funciona
 
@@ -36,7 +41,7 @@ Para cambiar la contraseña: editar `clave_ok` en el SQL y volver a correr solo 
 | `api/admin.js` | Lee y guarda todo (requiere contraseña) |
 | `api/photo.js` | Sube y sirve las fotos |
 | `lib/store.js` | Conexión a Supabase y validación |
-| `supabase/migrations/` | Tablas y funciones de la base (incluye la contraseña) |
+| `supabase/migrations/` | Tablas y funciones de la base |
 | `lib/seed.js` | Programa tentativo inicial |
 | `sw.js` | Modo sin conexión. **Subir `VERSION`** cada vez que se cambie la app pública |
 | `icons/` | Logo e íconos |

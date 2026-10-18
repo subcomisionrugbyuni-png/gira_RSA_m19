@@ -1,4 +1,4 @@
--- Gira Sudáfrica M19: pegar todo en Supabase → SQL Editor → Run (una sola vez).
+-- Gira Sudáfrica M19: pegar todo en Supabase → SQL Editor → Run. Se puede volver a correr sin perder datos.
 -- Las tablas quedan cerradas; la app solo entra por estas funciones.
 
 create extension if not exists pgcrypto;
@@ -21,9 +21,21 @@ alter table public.gira enable row level security;
 alter table public.fotos enable row level security;
 revoke all on public.gira, public.fotos from anon, authenticated;
 
--- Contraseña del panel /administrador (para cambiarla, editar acá y volver a correr esta función)
+-- Contraseña del panel /administrador: se guarda solo su hash (bcrypt), nunca en texto plano.
+-- Para definirla o cambiarla, correr en el SQL Editor (cambiando NUEVA_CLAVE):
+--   insert into public.ajustes (id, clave_hash) values (1, crypt('NUEVA_CLAVE', gen_salt('bf')))
+--   on conflict (id) do update set clave_hash = excluded.clave_hash;
+create table if not exists public.ajustes (
+  id int primary key default 1 check (id = 1),
+  clave_hash text not null
+);
+alter table public.ajustes enable row level security;
+revoke all on public.ajustes from anon, authenticated;
+
 create or replace function public.clave_ok(clave text) returns boolean
-language sql immutable as $$ select clave = 'LaU1907' $$;
+language sql stable security definer set search_path = public, extensions as $$
+  select exists (select 1 from ajustes where id = 1 and clave_hash = crypt(clave, clave_hash))
+$$;
 revoke all on function public.clave_ok(text) from public, anon, authenticated;
 
 create or replace function public.leer_publico() returns jsonb
