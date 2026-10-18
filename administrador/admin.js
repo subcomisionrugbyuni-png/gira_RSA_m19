@@ -363,7 +363,7 @@ async function save() {
     state = await api('/api/admin', { method: 'PUT', body: JSON.stringify(state) });
     setDirty(false);
     status.className = 'status ok';
-    status.textContent = `Guardado ✓ ${new Date().toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' })}`;
+    status.textContent = `Guardado ${new Date().toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' })}`;
     render();
   } catch (err) {
     setDirty(true);

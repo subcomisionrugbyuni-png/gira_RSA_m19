@@ -113,8 +113,8 @@ function uniformChip(id) {
   const u = uniformOf(id);
   if (!u) return null;
   // Solo se puede tocar si tiene prendas o explicación cargadas
-  if (!u.items && !u.detail) return h('span', { class: 'chip' }, `👕 ${u.name}`);
-  return h('button', { class: 'chip', type: 'button', onclick: () => openUniform(u) }, `👕 ${u.name}`);
+  if (!u.items && !u.detail) return h('span', { class: 'chip' }, u.name);
+  return h('button', { class: 'chip', type: 'button', onclick: () => openUniform(u) }, u.name);
 }
 
 function openUniform(u) {
@@ -129,7 +129,7 @@ function itemChips(e) {
   return h('div', { class: 'chips' },
     uniformChip(e.uniform),
     !e.confirmed ? h('span', { class: 'chip warn' }, 'A confirmar') : null,
-    e.map ? h('a', { class: 'chip', href: e.map, target: '_blank', rel: 'noopener' }, '📍 Mapa') : null,
+    e.map ? h('a', { class: 'chip', href: e.map, target: '_blank', rel: 'noopener' }, 'Ver mapa') : null,
   );
 }
 
@@ -183,10 +183,10 @@ function renderHoy() {
     .filter((n) => n.important && noticeWhen(n) <= t && t - noticeWhen(n) < 36 * HOUR)
     .sort((a, b) => noticeWhen(b) - noticeWhen(a))
     .forEach((n) => parts.push(h('div', { class: 'card pinned' },
-      h('h3', {}, '📌 ', n.title), n.message ? h('p', {}, ...linkify(n.message)) : null)));
+      h('h3', {}, n.title), n.message ? h('p', {}, ...linkify(n.message)) : null)));
 
   if (t > tripEnd) {
-    parts.push(h('div', { class: 'card big-count' }, h('div', { class: 'n' }, '🏉'),
+    parts.push(h('div', { class: 'card big-count' },
       h('p', {}, h('strong', {}, 'La gira terminó'), h('br'), '¡Gracias a todos por acompañar a La U!')));
     return parts;
   }
