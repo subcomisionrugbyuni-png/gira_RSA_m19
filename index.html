@@ -11,36 +11,37 @@
   <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Gira M19">
+  <link rel="preload" href="/fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <header class="top">
-    <div class="wrap">
-      <img class="logo" src="/icons/logo.png" alt="Escudo de la gira" width="52" height="52">
+  <header class="appbar">
+    <div class="wrap appbar-row">
+      <img class="logo" src="/icons/logo.png" alt="Escudo de la gira" width="50" height="50">
       <div class="brand">
         <h1 id="title">Gira Sudáfrica M19</h1>
         <p id="subtitle">Club Universitario de Córdoba</p>
       </div>
       <button class="icon-btn" id="refresh" aria-label="Actualizar">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
       </button>
     </div>
   </header>
+  <div class="flagline" aria-hidden="true"></div>
   <div class="clocks">
     <div class="wrap">
-      <div class="clock"><span>SA</span><b id="clock-sa">--:--</b></div>
-      <div class="clock"><span>AR</span><b id="clock-ar">--:--</b></div>
+      <p class="zone-label">Ver horarios en</p>
       <div class="zone-switch" role="group" aria-label="Ver horarios en">
-        <button data-zone="SA">Hora SA</button>
-        <button data-zone="AR">Hora AR</button>
+        <button data-zone="SA" type="button"><span class="zl">Hora SA<small>Sudáfrica</small></span><b id="clock-sa">--:--</b></button>
+        <button data-zone="AR" type="button"><span class="zl">Hora AR<small>Argentina</small></span><b id="clock-ar">--:--</b></button>
       </div>
     </div>
   </div>
   <div class="offline" id="offline" hidden><div class="wrap" id="offline-text"></div></div>
   <div class="install" id="install" hidden>
     <div class="wrap">
-      <img src="/icons/icon-192.png" alt="" width="40" height="40">
-      <div class="install-text"><b>Instalá la app</b><span>Agregala a tu pantalla de inicio</span></div>
+      <img src="/icons/icon-192.png" alt="" width="42" height="42">
+      <div class="install-text"><b>Instalá la app</b><span>En tu pantalla de inicio</span></div>
       <button class="install-btn" id="install-btn" type="button">Agregar</button>
       <button class="install-close" id="install-close" type="button" aria-label="Ocultar">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
@@ -58,17 +59,16 @@
   <nav class="tabs" aria-label="Secciones">
     <div class="wrap">
       <button data-view="hoy" aria-current="page">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Hoy
+        <span class="tab-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>Hoy
       </button>
       <button data-view="dias">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Días
+        <span class="tab-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>Días
       </button>
       <button data-view="avisos">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10 21a2 2 0 0 0 4 0"/></svg>Avisos
-        <span class="badge" id="badge" hidden></span>
+        <span class="tab-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10 21a2 2 0 0 0 4 0"/></svg><span class="badge" id="badge" hidden></span></span>Avisos
       </button>
       <button data-view="info">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>Info
+        <span class="tab-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg></span>Info
       </button>
     </div>
   </nav>

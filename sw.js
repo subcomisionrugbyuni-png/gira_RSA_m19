@@ -1,6 +1,7 @@
 // Subir VERSION cada vez que se cambien index.html, app.js o styles.css
-const VERSION = 'v8';
-const SHELL = ['/', '/styles.css', '/app.js', '/manifest.webmanifest', '/icons/logo.png', '/icons/icon-192.png'];
+const VERSION = 'v9';
+const SHELL = ['/', '/styles.css', '/app.js', '/manifest.webmanifest', '/icons/logo.png', '/icons/icon-192.png',
+  '/fonts/barlow-condensed-600.woff2', '/fonts/barlow-condensed-700.woff2', '/fonts/barlow-condensed-800.woff2'];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(VERSION).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));

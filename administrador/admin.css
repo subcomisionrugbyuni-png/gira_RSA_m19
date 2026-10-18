@@ -2,8 +2,8 @@ body.admin { padding-bottom: 40px; }
 
 .login { min-height: 100vh; display: grid; place-items: center; padding: 16px; }
 .login form { width: 100%; max-width: 360px; text-align: center; display: grid; gap: 12px; padding: 28px 20px; }
-.login .logo { margin: 0 auto; width: 64px; height: 64px; }
-.login h1 { margin: 0; font-size: 1.3rem; }
+.login .logo { margin: 0 auto 4px; width: 84px; height: 84px; }
+.login h1 { margin: 0; font-family: var(--font-display); font-weight: 800; font-size: 1.7rem; text-transform: uppercase; line-height: 1.05; }
 .login p { margin: 0; }
 .error { color: var(--red); font-weight: 600; }
 
@@ -17,7 +17,7 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); ou
 
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-  padding: 9px 14px; border-radius: 10px; border: 1px solid var(--line);
+  padding: 10px 16px; min-height: 44px; border-radius: 12px; border: 1px solid var(--line);
   background: var(--surface); color: var(--ink); font-weight: 650; font-size: .9rem;
   text-decoration: none; white-space: nowrap;
 }
@@ -28,7 +28,7 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); ou
 .btn.small { padding: 5px 10px; font-size: .82rem; }
 .btn.add { width: 100%; border-style: dashed; color: var(--accent); }
 .x {
-  width: 34px; height: 34px; flex: 0 0 auto; border-radius: 8px;
+  width: 40px; height: 40px; flex: 0 0 auto; border-radius: 10px;
   border: 1px solid var(--line); background: var(--surface); color: var(--red); font-size: 1rem;
 }
 
@@ -108,3 +108,9 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); ou
   box-shadow: 0 8px 30px rgba(0, 0, 0, .3); max-width: calc(100vw - 32px);
 }
 .x:disabled { opacity: .3; cursor: default; }
+
+.bar strong { font-family: var(--font-display); font-weight: 800; font-size: 1.25rem; text-transform: uppercase; letter-spacing: .01em; }
+.login button.btn { min-height: 50px; font-size: 1rem; }
+.btn.add { min-height: 48px; }
+.block-bar { display: flex; align-items: center; gap: 6px; margin: -2px 0 10px; }
+.block-n { margin-right: auto; font-size: .75rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
