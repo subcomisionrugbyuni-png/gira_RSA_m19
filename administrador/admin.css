@@ -107,3 +107,4 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); ou
   background: #111111; color: #fff; padding: 10px 16px; border-radius: 12px; font-size: .9rem;
   box-shadow: 0 8px 30px rgba(0, 0, 0, .3); max-width: calc(100vw - 32px);
 }
+.x:disabled { opacity: .3; cursor: default; }

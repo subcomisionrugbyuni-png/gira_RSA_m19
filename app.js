@@ -77,13 +77,13 @@ function fmtLeft(ms) {
 function events() {
   const list = [];
   for (const day of data.days) {
-    for (const it of day.items) {
-      if (!it.from) continue;
+    day.items.forEach((it, idx) => {
+      if (!it.from) return;
       const start = instant(day.date, it.from, it.zone);
       let end = it.to ? instant(day.date, it.to, it.zone) : null;
       if (end != null && end <= start) end += 24 * HOUR; // cruza la medianoche
-      list.push({ ...it, day, start, end });
-    }
+      list.push({ ...it, day, idx, start, end });
+    });
   }
   list.sort((a, b) => a.start - b.start);
   // Sin hora de fin: dura hasta el siguiente bloque (máx. 2 h)
@@ -134,7 +134,8 @@ function itemChips(e) {
 }
 
 function timeline(dayEvents, t) {
-  return h('ul', { class: 'timeline' }, dayEvents.map((e) => {
+  // En el orden que definió el panel
+  return h('ul', { class: 'timeline' }, [...dayEvents].sort((a, b) => a.idx - b.idx).map((e) => {
     const state = t >= e.until ? 'past' : t >= e.start ? 'now' : '';
     return h('li', { class: state, 'data-id': e.id },
       h('div', { class: 'time' }, fmtTime(e.start),

@@ -135,13 +135,14 @@ function dayCard(day) {
 
 function dayBody(day) {
   const uniforms = [['', '— Sin vestimenta —'], ...state.uniforms.map((u) => [u.id, u.name])];
-  day.items.sort((a, b) => (a.from || '99').localeCompare(b.from || '99'));
 
   const block = (it, i) => h('div', { class: `block${it.hidden ? ' hid' : ''}` },
     h('div', { class: 'block-head' },
       h('div', { class: 'row' },
         field('Desde', input(it, 'from', { type: 'time' })),
         field('Hasta', input(it, 'to', { type: 'time' }))),
+      h('button', { class: 'x', type: 'button', title: 'Subir', 'aria-label': 'Subir bloque', disabled: i === 0, onclick: () => move(day.items, i, -1) }, '↑'),
+      h('button', { class: 'x', type: 'button', title: 'Bajar', 'aria-label': 'Bajar bloque', disabled: i === day.items.length - 1, onclick: () => move(day.items, i, 1) }, '↓'),
       h('button', {
         class: 'x', type: 'button', title: 'Borrar bloque',
         onclick: () => { if (confirm(`¿Borrar "${it.activity || 'este bloque'}"?`)) { day.items.splice(i, 1); setDirty(); render(); } },
@@ -206,7 +207,7 @@ function renderDias() {
   state.days.sort((a, b) => (a.date || '9').localeCompare(b.date || '9'));
   const visible = state.days.filter((d) => d.unlocked).length;
   return [
-    h('p', { class: 'hint' }, `Activá el interruptor para desbloquear un día en la app (${visible} de ${state.days.length} visibles). Los bloques marcados como "Oculto" no se muestran aunque el día esté visible. Los horarios se cargan en hora de Sudáfrica (SA) o de Argentina (AR). No te olvides de tocar "Guardar".`),
+    h('p', { class: 'hint' }, `Activá el interruptor para desbloquear un día en la app (${visible} de ${state.days.length} visibles). Los bloques marcados como "Oculto" no se muestran aunque el día esté visible. Los horarios se cargan en hora de Sudáfrica (SA) o de Argentina (AR). Con ↑ ↓ cambiás el orden de los bloques; la app muestra ese mismo orden. No te olvides de tocar "Guardar".`),
     state.days.map(dayCard),
     h('button', {
       class: 'btn add', type: 'button',
