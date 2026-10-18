@@ -95,6 +95,20 @@ a { color: var(--accent); }
   font-size: .85rem; padding: 8px 0; border-bottom: 1px solid var(--line);
 }
 
+/* Agregar a inicio */
+.install { background: var(--surface); border-bottom: 1px solid var(--line); }
+.install .wrap { display: flex; align-items: center; gap: 12px; padding-top: 10px; padding-bottom: 10px; }
+.install img { width: 40px; height: 40px; border-radius: 10px; flex: none; }
+.install-text { flex: 1; min-width: 0; line-height: 1.25; }
+.install-text b { display: block; font-size: .95rem; }
+.install-text span { font-size: .82rem; color: var(--muted); }
+.install-btn { border: 0; border-radius: 999px; background: var(--red); color: #fff; font-weight: 700; padding: 10px 16px; min-height: 44px; }
+.install-close { border: 0; background: none; color: var(--muted); width: 36px; height: 44px; display: grid; place-items: center; flex: none; }
+.install-close svg { width: 18px; height: 18px; }
+.steps { margin: 0 0 16px; padding-left: 20px; }
+.steps li { margin: 8px 0; }
+.share-ic { width: 18px; height: 18px; vertical-align: -3px; color: #0a84ff; }
+
 main { padding: 18px 0 28px; }
 
 /* Navegación inferior */

@@ -378,6 +378,43 @@ async function load() {
   }
 }
 
+/* ---------- agregar a la pantalla de inicio ---------- */
+
+// Android/Chrome instalan con un botón; en iPhone solo se pueden mostrar los pasos.
+const isInstalled = () => matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+const HIDE_DAYS = 3;
+let installPrompt = null;
+
+function showInstall(visible) {
+  const hiddenAt = Number(store('gira-instalar-oculto'));
+  const dismissed = hiddenAt && Date.now() - hiddenAt < HIDE_DAYS * 24 * HOUR;
+  document.getElementById('install').hidden = !visible || isInstalled() || dismissed;
+}
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  installPrompt = e;
+  showInstall(true);
+});
+window.addEventListener('appinstalled', () => { installPrompt = null; showInstall(false); });
+
+document.getElementById('install-btn').addEventListener('click', async () => {
+  if (installPrompt) {
+    installPrompt.prompt();
+    const { outcome } = await installPrompt.userChoice;
+    if (outcome === 'accepted') showInstall(false);
+    installPrompt = null;
+  } else {
+    document.getElementById('install-dialog').showModal();
+  }
+});
+document.getElementById('install-close').addEventListener('click', () => {
+  store('gira-instalar-oculto', String(Date.now()));
+  showInstall(false);
+});
+if (isIOS) showInstall(true);
+
 /* ---------- arranque ---------- */
 
 document.querySelectorAll('.tabs button').forEach((b) => b.addEventListener('click', () => show(b.dataset.view)));

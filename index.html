@@ -37,6 +37,16 @@
     </div>
   </div>
   <div class="offline" id="offline" hidden><div class="wrap" id="offline-text"></div></div>
+  <div class="install" id="install" hidden>
+    <div class="wrap">
+      <img src="/icons/icon-192.png" alt="" width="40" height="40">
+      <div class="install-text"><b>Instalá la app</b><span>Agregala a tu pantalla de inicio</span></div>
+      <button class="install-btn" id="install-btn" type="button">Agregar</button>
+      <button class="install-close" id="install-close" type="button" aria-label="Ocultar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+  </div>
 
   <main class="wrap">
     <section id="view-hoy"></section>
@@ -68,6 +78,18 @@
     <p id="ud-items"></p>
     <p id="ud-detail" class="muted"></p>
     <form method="dialog"><button class="close">Cerrar</button></form>
+  </dialog>
+
+  <dialog id="install-dialog">
+    <h3>Agregar a la pantalla de inicio</h3>
+    <ol class="steps">
+      <li>Tocá el botón <b>Compartir</b>
+        <svg class="share-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Compartir"><path d="M12 15V3M8 7l4-4 4 4"/><path d="M5 11v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-8"/></svg>
+        (abajo en Safari, o arriba en Chrome).</li>
+      <li>Bajá y elegí <b>Agregar a inicio</b>.</li>
+      <li>Tocá <b>Agregar</b>. La app queda en tu pantalla como cualquier otra.</li>
+    </ol>
+    <form method="dialog"><button class="close">Entendido</button></form>
   </dialog>
 
   <script src="/app.js"></script>
