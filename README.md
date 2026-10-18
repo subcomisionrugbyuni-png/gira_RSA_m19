@@ -5,18 +5,19 @@ App web (se abre desde un link y se puede instalar en el celular) con el cronogr
 - **App pública:** `/`. Tiene cuatro pantallas: Hoy, Días, Avisos e Info.
 - **Panel de administración:** `/administrador`. No está enlazado desde la app y se entra con contraseña.
 
-La contraseña está en `lib/store.js` (`ADMIN_PASSWORD`). Si en Vercel se define la variable de entorno `ADMIN_PASSWORD`, esa tiene prioridad.
+La contraseña está escrita en `supabase/migrations/20261018000000_gira.sql` (función `clave_ok`) y la verifica la base de datos.
 
-## Publicar en Vercel
+## Puesta en marcha (una sola vez)
 
-1. En Vercel: **Add New → Project**, importar este repositorio y hacer **Deploy**. No hace falta configurar nada.
-2. Conectar la base de datos: en el proyecto entrar a **Storage → Create Database → Upstash (Redis)**, elegir el plan gratuito y conectarla al proyecto. Eso crea solo las variables `KV_REST_API_URL` y `KV_REST_API_TOKEN`.
-3. **Redeploy**, para que el proyecto tome las variables nuevas.
-4. Entrar a `https://<tu-dominio>/administrador` y guardar una vez. Mientras la base está vacía, la app usa el programa tentativo cargado en `lib/seed.js`.
+1. **Supabase**: en el proyecto `gvokucecvdhjhwvktlut` entrar a **SQL Editor → New query**, pegar todo el contenido de `supabase/migrations/20261018000000_gira.sql` y tocar **Run**. Con la CLI, `supabase link --project-ref gvokucecvdhjhwvktlut` y después `supabase db push` hacen lo mismo.
+2. **Vercel**: **Add New → Project**, importar este repositorio y hacer **Deploy**. No hace falta configurar variables: la URL de Supabase y la clave publishable están en `lib/store.js`.
+3. Entrar a `https://<tu-dominio>/administrador` y guardar una vez. Mientras la base está vacía, la app usa el programa tentativo cargado en `lib/seed.js`.
+
+Para cambiar la contraseña: editar `clave_ok` en el SQL y volver a correr solo esa función en el SQL Editor.
 
 ## Cómo funciona
 
-- Los datos se guardan en Upstash Redis y las fotos se achican en el celular antes de subirse.
+- Los datos y las fotos se guardan en Supabase. Las tablas están cerradas y solo se accede por funciones; las que escriben piden la contraseña. Las fotos se achican en el celular antes de subirse.
 - Todos los días arrancan **bloqueados**: desde el panel se desbloquean con el interruptor y se toca **Guardar**.
 - Los bloques marcados como "Oculto" no se muestran aunque el día esté visible.
 - La app consulta los datos cada 30 segundos, al volver a la pestaña y con el botón de actualizar.
@@ -34,7 +35,8 @@ La contraseña está en `lib/store.js` (`ADMIN_PASSWORD`). Si en Vercel se defin
 | `api/data.js` | Datos públicos: solo días desbloqueados, sin bloques ni avisos ocultos |
 | `api/admin.js` | Lee y guarda todo (requiere contraseña) |
 | `api/photo.js` | Sube y sirve las fotos |
-| `lib/store.js` | Base de datos, contraseña y validación |
+| `lib/store.js` | Conexión a Supabase y validación |
+| `supabase/migrations/` | Tablas y funciones de la base (incluye la contraseña) |
 | `lib/seed.js` | Programa tentativo inicial |
 | `sw.js` | Modo sin conexión. **Subir `VERSION`** cada vez que se cambie la app pública |
 | `icons/` | Logo e íconos |

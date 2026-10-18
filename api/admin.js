@@ -1,19 +1,18 @@
-import { getData, saveData, normalize, photoIds, deletePhotos, isAdmin, sendError } from '../lib/store.js';
+import { getAdminData, saveData, normalize, photoIds, deletePhotos, passwordOf, sendError } from '../lib/store.js';
 
 export default async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
+  const clave = passwordOf(req);
   try {
-    if (!(await isAdmin(req))) return res.status(401).json({ error: 'Contraseña incorrecta' });
-
-    if (req.method === 'GET') return res.status(200).json(await getData());
+    if (req.method === 'GET') return res.status(200).json(await getAdminData(clave));
 
     if (req.method === 'PUT') {
-      const before = await getData();
+      const before = await getAdminData(clave);
       const data = normalize(req.body);
-      await saveData(data);
+      await saveData(clave, data);
       // Borra las fotos que se sacaron de algún día
       const keep = new Set(photoIds(data));
-      await deletePhotos(photoIds(before).filter((id) => !keep.has(id)));
+      await deletePhotos(clave, photoIds(before).filter((id) => !keep.has(id)));
       return res.status(200).json(data);
     }
 
