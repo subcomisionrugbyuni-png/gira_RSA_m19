@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#033766">
+  <title>Administrador · Gira M19</title>
+  <link rel="icon" href="/icons/icon-192.png">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/administrador/admin.css">
+</head>
+<body class="admin">
+  <section id="login" class="login">
+    <form class="card" id="login-form">
+      <img class="logo" src="/icons/logo.png" alt="" width="64" height="64">
+      <h1>Panel de administración</h1>
+      <p class="muted">Gira Sudáfrica M19</p>
+      <input type="password" id="password" placeholder="Contraseña" autocomplete="current-password" required>
+      <button class="btn primary" type="submit">Entrar</button>
+      <p class="error" id="login-error" hidden></p>
+    </form>
+  </section>
+
+  <section id="editor" hidden>
+    <header class="bar">
+      <div class="wrap">
+        <strong>Administrador</strong>
+        <span class="status" id="status"></span>
+        <a class="btn ghost" href="/" target="_blank" rel="noopener">Ver app</a>
+        <button class="btn primary" id="save" disabled>Guardar</button>
+      </div>
+      <nav class="wrap admin-tabs" id="admin-tabs">
+        <button data-tab="dias" aria-current="page">Días</button>
+        <button data-tab="avisos">Avisos</button>
+        <button data-tab="info">Info</button>
+        <button data-tab="vestimenta">Vestimenta</button>
+        <button data-tab="general">General</button>
+      </nav>
+    </header>
+    <main class="wrap" id="panel"></main>
+  </section>
+
+  <script src="/administrador/admin.js"></script>
+</body>
+</html>
