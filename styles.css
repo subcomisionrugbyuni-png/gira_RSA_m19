@@ -240,11 +240,9 @@ li.next .state { color: var(--blue); }
 .tag.imp { background: var(--gold); color: #0F1B2D; }
 
 /* Info */
-.uniform h3, .info-item h3 { margin: 0 0 6px; font-size: 1rem; }
-.uniform p, .info-item p { margin: 0; white-space: pre-line; }
-.uniform .items { margin: 6px 0 0; }
+.info-item h3 { margin: 0 0 6px; font-size: 1rem; }
+.info-item p { margin: 0; white-space: pre-line; }
 .muted { color: var(--muted); }
-.install ol { margin: 4px 0 10px; padding-left: 20px; }
 
 .empty { text-align: center; color: var(--muted); padding: 36px 8px; }
 .empty strong { display: block; color: var(--ink); font-size: 1.1rem; margin-bottom: 4px; }

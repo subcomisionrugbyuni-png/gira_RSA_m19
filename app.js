@@ -292,14 +292,8 @@ function renderAvisos() {
 }
 
 function renderInfo() {
+  if (!data.info.length) return [emptyState('Sin información', 'Todavía no hay información cargada.')];
   const parts = [];
-  if (data.uniforms.length) {
-    parts.push(h('h2', { class: 'section-title' }, 'Vestimenta'));
-    data.uniforms.forEach((u) => parts.push(h('div', { class: 'card uniform' },
-      h('h3', {}, `👕 ${u.name}`),
-      u.items ? h('p', { class: 'items' }, ...linkify(u.items)) : h('p', { class: 'muted' }, 'Prendas: a confirmar.'),
-      u.detail ? h('p', { class: 'muted', style: 'margin-top:6px' }, ...linkify(u.detail)) : null)));
-  }
   const sections = [...new Set(data.info.map((i) => i.section || 'Información'))];
   sections.forEach((s) => {
     parts.push(h('h2', { class: 'section-title' }, s));
@@ -307,13 +301,6 @@ function renderInfo() {
       i.title ? h('h3', {}, i.title) : null,
       h('p', {}, ...linkify(i.content)))));
   });
-  parts.push(h('h2', { class: 'section-title' }, 'Instalar en el celular'));
-  parts.push(h('div', { class: 'card install' },
-    h('strong', {}, 'iPhone (Safari)'),
-    h('ol', {}, h('li', {}, 'Tocá el botón Compartir (cuadrado con flecha).'), h('li', {}, 'Elegí "Agregar a inicio".')),
-    h('strong', {}, 'Android (Chrome)'),
-    h('ol', {}, h('li', {}, 'Tocá el menú ⋮ arriba a la derecha.'), h('li', {}, 'Elegí "Instalar app" o "Agregar a pantalla principal".')),
-    h('p', { class: 'muted', style: 'margin:0' }, 'Se actualiza sola y, si te quedás sin señal, muestra lo último que se descargó.')));
   return parts;
 }
 
