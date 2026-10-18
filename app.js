@@ -112,13 +112,15 @@ function dayShift(e) {
 function uniformChip(id) {
   const u = uniformOf(id);
   if (!u) return null;
+  // Solo se puede tocar si tiene prendas o explicación cargadas
+  if (!u.items && !u.detail) return h('span', { class: 'chip' }, `👕 ${u.name}`);
   return h('button', { class: 'chip', type: 'button', onclick: () => openUniform(u) }, `👕 ${u.name}`);
 }
 
 function openUniform(u) {
   document.getElementById('ud-title').textContent = u.name;
   const items = document.getElementById('ud-items');
-  items.textContent = u.items || 'Prendas: a confirmar.';
+  items.textContent = u.items;
   document.getElementById('ud-detail').replaceChildren(...linkify(u.detail || ''));
   document.getElementById('uniform-dialog').showModal();
 }

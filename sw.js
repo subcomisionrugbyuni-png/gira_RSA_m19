@@ -1,5 +1,5 @@
 // Subir VERSION cada vez que se cambien index.html, app.js o styles.css
-const VERSION = 'v2';
+const VERSION = 'v3';
 const SHELL = ['/', '/styles.css', '/app.js', '/manifest.webmanifest', '/icons/logo.png', '/icons/icon-192.png'];
 
 self.addEventListener('install', (e) => {

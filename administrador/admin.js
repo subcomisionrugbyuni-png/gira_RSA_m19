@@ -304,7 +304,7 @@ function renderInfo() {
 
 function renderVestimenta() {
   return [
-    h('p', { class: 'hint' }, 'Uniformes que se eligen en cada bloque del cronograma. En la app, al tocar la vestimenta se ven las prendas y la explicación.'),
+    h('p', { class: 'hint' }, 'Vestimentas que se eligen en cada bloque del cronograma. Las prendas y la explicación son opcionales: si están vacías, en la app se ve solo el nombre.'),
     state.uniforms.map((u, i) => h('article', { class: 'card' },
       h('div', { class: 'block-head' },
         h('div', { class: 'row', style: 'grid-template-columns:1fr' }, field('Nombre', input(u, 'name'))),
