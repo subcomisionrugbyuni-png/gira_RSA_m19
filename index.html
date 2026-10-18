@@ -2,11 +2,74 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Gira RSA M19</title>
-  <style>
-    html, body { margin: 0; height: 100%; background: #ff0000; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#033766">
+  <meta name="description" content="Cronograma, vestimenta y avisos de la Gira Sudáfrica M19 del Club Universitario de Córdoba.">
+  <title>Gira Sudáfrica M19</title>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Gira M19">
+  <link rel="stylesheet" href="/styles.css">
 </head>
-<body></body>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <img class="logo" src="/icons/logo.png" alt="Escudo de la gira" width="52" height="52">
+      <div class="brand">
+        <h1 id="title">Gira Sudáfrica M19</h1>
+        <p id="subtitle">Club Universitario de Córdoba</p>
+      </div>
+      <button class="icon-btn" id="refresh" aria-label="Actualizar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
+      </button>
+    </div>
+  </header>
+  <div class="clocks">
+    <div class="wrap">
+      <div class="clock"><span>🇿🇦</span><b id="clock-sa">--:--</b></div>
+      <div class="clock"><span>🇦🇷</span><b id="clock-ar">--:--</b></div>
+      <div class="zone-switch" role="group" aria-label="Ver horarios en">
+        <button data-zone="SA">Hora SA</button>
+        <button data-zone="AR">Hora AR</button>
+      </div>
+    </div>
+  </div>
+  <div class="offline" id="offline" hidden><div class="wrap" id="offline-text"></div></div>
+
+  <main class="wrap">
+    <section id="view-hoy"></section>
+    <section id="view-dias" hidden></section>
+    <section id="view-avisos" hidden></section>
+    <section id="view-info" hidden></section>
+  </main>
+
+  <nav class="tabs" aria-label="Secciones">
+    <div class="wrap">
+      <button data-view="hoy" aria-current="page">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Hoy
+      </button>
+      <button data-view="dias">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Días
+      </button>
+      <button data-view="avisos">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10 21a2 2 0 0 0 4 0"/></svg>Avisos
+        <span class="badge" id="badge" hidden></span>
+      </button>
+      <button data-view="info">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>Info
+      </button>
+    </div>
+  </nav>
+
+  <dialog id="uniform-dialog">
+    <h3 id="ud-title"></h3>
+    <p id="ud-items"></p>
+    <p id="ud-detail" class="muted"></p>
+    <form method="dialog"><button class="close">Cerrar</button></form>
+  </dialog>
+
+  <script src="/app.js"></script>
+</body>
 </html>
