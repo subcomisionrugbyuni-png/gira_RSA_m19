@@ -46,11 +46,8 @@ window.DESTINOS = [
     "name": "Johannesburgo",
     "kind": "ciudad",
     "match": "Johannesburgo|Johannesburg",
-    "file": "/img/destinos/johannesburgo.jpg?v=ab5a441d",
-    "author": "Frankbel",
-    "license": "CC BY-SA 4.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
-    "source": "https://commons.wikimedia.org/wiki/File%3AJohannesburg-city-skyline-night.jpg"
+    "file": "/img/destinos/johannesburgo.jpg?v=b57c03f5",
+    "pos": "center 55%"
   },
   {
     "id": "pretoria",
