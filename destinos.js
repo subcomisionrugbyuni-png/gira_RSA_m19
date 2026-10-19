@@ -155,6 +155,17 @@ window.DESTINOS = [
     "source": "https://commons.wikimedia.org/wiki/File%3AA_view_from_Cape_of_Good_Hope.jpg"
   },
   {
+    "id": "camps-bay",
+    "name": "Camps Bay",
+    "kind": "atraccion",
+    "match": "Camps Bay",
+    "file": "/img/destinos/camps-bay.jpg",
+    "author": "Chs87",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AAusblick_vom_Lionshead_in_Kapstadt_Richtung_Camps_Bay_Beach.jpg"
+  },
+  {
     "id": "clifton",
     "name": "Clifton Bay",
     "kind": "atraccion",
