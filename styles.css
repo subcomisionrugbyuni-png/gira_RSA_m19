@@ -448,7 +448,7 @@ dialog .close:active { transform: scale(.99); }
 .cover-text .overline { color: rgba(255, 255, 255, .85); }
 .cover-text h2 { margin: 3px 0 0; font-family: var(--font-display); font-weight: 700; font-size: 1.8rem; line-height: 1.05; text-shadow: 0 1px 8px rgba(0, 0, 0, .35); }
 .hero.has-img { padding-top: 0; }
-.hero-img { display: block; width: calc(100% + 32px); margin: 0 -16px 16px; aspect-ratio: 16 / 8; object-fit: cover; }
+.hero-img { display: block; max-width: none; width: calc(100% + 32px); margin: 0 -16px 16px; aspect-ratio: 16 / 8; object-fit: cover; }
 .tl-photo { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 12px; margin-top: 10px; background: var(--soft); }
 .preview-img { display: block; width: 100%; aspect-ratio: 16 / 7; object-fit: cover; }
 .day > summary { display: block; padding: 0; min-height: 0; }

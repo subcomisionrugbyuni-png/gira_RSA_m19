@@ -12,6 +12,17 @@ window.DESTINOS = [
     "source": "https://commons.wikimedia.org/wiki/File%3APanoramicaCORDOBA-ARG.JPG"
   },
   {
+    "id": "santiago",
+    "name": "Santiago de Chile",
+    "kind": "ciudad",
+    "match": "Santiago",
+    "file": "/img/destinos/santiago.jpg",
+    "author": "3BRBS",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AGran_Santiago_Tower%2C_Views_from_San_Crit%C3%B3bal_Hill_-_Santiago_-_Chile_04.jpg"
+  },
+  {
     "id": "sao-paulo",
     "name": "São Paulo",
     "kind": "ciudad",
