@@ -95,10 +95,11 @@ window.DESTINOS = [
     "kind": "ciudad",
     "match": "Ciudad del Cabo|Cape Town",
     "file": "/img/destinos/ciudad-del-cabo.jpg",
-    "author": "Matti Blume",
+    "author": "Josep M. Gracia",
+    "pos": "center 60%",
     "license": "CC BY-SA 4.0",
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
-    "source": "https://commons.wikimedia.org/wiki/File%3AParagliding%2C_Cape_Town_%28P1050339%29.jpg"
+    "source": "https://commons.wikimedia.org/wiki/File%3ACT_-_Table_Mountain_and_Cape_Town_cityscape%2C_South_Africa%2C_2017.jpg"
   },
   {
     "id": "cango-caves",
