@@ -5,7 +5,15 @@ window.DESTINOS = [
     "name": "Córdoba (Argentina)",
     "kind": "ciudad",
     "match": "C[óo]rdoba",
-    "file": "/img/destinos/cordoba.jpg?v=e35d6061",
+    "file": "/img/destinos/cordoba.jpg?v=5dd0a078",
+    "pos": "center 60%"
+  },
+  {
+    "id": "cordoba-panoramica",
+    "name": "Córdoba (panorámica)",
+    "kind": "ciudad",
+    "match": "[^\\s\\S]",
+    "file": "/img/destinos/cordoba-panoramica.jpg?v=e35d6061",
     "author": "Gone1",
     "license": "Dominio público",
     "license_url": "https://commons.wikimedia.org/wiki/File%3APanoramicaCORDOBA-ARG.JPG",
