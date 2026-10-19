@@ -50,11 +50,11 @@ window.DESTINOS = [
     "kind": "ciudad",
     "match": "Pretoria",
     "file": "/img/destinos/pretoria.jpg",
-    "author": "JMK",
-    "pos": "center 45%",
-    "license": "CC BY-SA 4.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
-    "source": "https://commons.wikimedia.org/wiki/File%3AJakarandas_in_Olivierstraat%2C_Pretoria%2C_9_Okt_2022.jpg"
+    "author": "Jérôme Bon from Paris, France",
+    "pos": "center 55%",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3APr%C3%A9toria-skyline.jpg"
   },
   {
     "id": "george",
