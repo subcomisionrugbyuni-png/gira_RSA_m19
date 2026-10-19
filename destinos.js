@@ -110,7 +110,15 @@ window.DESTINOS = [
     "name": "Ciudad del Cabo",
     "kind": "ciudad",
     "match": "Ciudad del Cabo|Cape Town",
-    "file": "/img/destinos/ciudad-del-cabo.jpg?v=fd5a2733",
+    "file": "/img/destinos/ciudad-del-cabo.jpg?v=4a02e3fe",
+    "pos": "center 50%"
+  },
+  {
+    "id": "ciudad-del-cabo-montana",
+    "name": "Ciudad del Cabo (con Table Mountain)",
+    "kind": "ciudad",
+    "match": "[^\\s\\S]",
+    "file": "/img/destinos/ciudad-del-cabo-montana.jpg?v=fd5a2733",
     "author": "Josep M. Gracia",
     "pos": "center 60%",
     "license": "CC BY-SA 4.0",
