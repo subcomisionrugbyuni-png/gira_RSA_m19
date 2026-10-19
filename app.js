@@ -214,7 +214,16 @@ function matchDest(text, kind) {
 // 'none' = sin imagen; un id elegido en el panel; si no, se reconoce por el texto
 function dayImage(day) {
   if (day.image === 'none') return null;
-  return destById(day.image) || matchDest(day.title || '');
+  if (destById(day.image)) return destById(day.image);
+  const base = matchDest(day.title || '');
+  const variants = base ? [base, ...DEST.filter((d) => d.alt === base.id)] : [];
+  if (variants.length < 2) return base;
+  // Días seguidos en el mismo lugar: alterna entre las fotos de ese lugar
+  const auto = (d) => !d.image || !destById(d.image);
+  let i = data.days.indexOf(day);
+  let n = 0;
+  while (i > 0 && auto(data.days[i - 1]) && data.days[i - 1].image !== 'none' && matchDest(data.days[i - 1].title || '') === base) { i--; n++; }
+  return variants[n % variants.length];
 }
 function itemImage(e) {
   if (e.image === 'none') return null;

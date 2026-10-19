@@ -15,6 +15,7 @@ window.DESTINOS = [
     "match": "[^\\s\\S]",
     "file": "/img/destinos/cordoba-panoramica.jpg?v=e35d6061",
     "author": "Gone1",
+    "alt": "cordoba",
     "license": "Dominio público",
     "license_url": "https://commons.wikimedia.org/wiki/File%3APanoramicaCORDOBA-ARG.JPG",
     "source": "https://commons.wikimedia.org/wiki/File%3APanoramicaCORDOBA-ARG.JPG"
@@ -63,7 +64,8 @@ window.DESTINOS = [
     "kind": "ciudad",
     "match": "[^\\s\\S]",
     "file": "/img/destinos/pretoria-centro.jpg?v=4ec6f0b7",
-    "pos": "center 45%"
+    "pos": "center 45%",
+    "alt": "pretoria"
   },
   {
     "id": "george",
@@ -91,6 +93,7 @@ window.DESTINOS = [
     "match": "[^\\s\\S]",
     "file": "/img/destinos/wilderness-playa.jpg?v=b7d28ec3",
     "author": "M.Uebel",
+    "alt": "wilderness",
     "license": "Dominio público",
     "license_url": "https://commons.wikimedia.org/wiki/File%3AWilderness_beach.jpg",
     "source": "https://commons.wikimedia.org/wiki/File%3AWilderness_beach.jpg"
@@ -122,6 +125,7 @@ window.DESTINOS = [
     "file": "/img/destinos/ciudad-del-cabo-montana.jpg?v=fd5a2733",
     "author": "Josep M. Gracia",
     "pos": "center 60%",
+    "alt": "ciudad-del-cabo",
     "license": "CC BY-SA 4.0",
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
     "source": "https://commons.wikimedia.org/wiki/File%3ACT_-_Table_Mountain_and_Cape_Town_cityscape%2C_South_Africa%2C_2017.jpg"
