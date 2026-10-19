@@ -62,12 +62,8 @@ window.DESTINOS = [
     "name": "Pretoria (centro)",
     "kind": "ciudad",
     "match": "[^\\s\\S]",
-    "file": "/img/destinos/pretoria-centro.jpg?v=2d1426ae",
-    "author": "Jérôme Bon from Paris, France",
-    "pos": "center 55%",
-    "license": "CC BY 2.0",
-    "license_url": "https://creativecommons.org/licenses/by/2.0/",
-    "source": "https://commons.wikimedia.org/wiki/File%3APr%C3%A9toria-skyline.jpg"
+    "file": "/img/destinos/pretoria-centro.jpg?v=4ec6f0b7",
+    "pos": "center 45%"
   },
   {
     "id": "george",
