@@ -1,6 +1,17 @@
 // Catálogo de imágenes de destinos (fotos de Wikimedia Commons; créditos en la pestaña Info)
 window.DESTINOS = [
   {
+    "id": "cordoba",
+    "name": "Córdoba (Argentina)",
+    "kind": "ciudad",
+    "match": "C[óo]rdoba",
+    "file": "/img/destinos/cordoba.jpg",
+    "author": "Gone1",
+    "license": "Dominio público",
+    "license_url": "https://commons.wikimedia.org/wiki/File%3APanoramicaCORDOBA-ARG.JPG",
+    "source": "https://commons.wikimedia.org/wiki/File%3APanoramicaCORDOBA-ARG.JPG"
+  },
+  {
     "id": "sao-paulo",
     "name": "São Paulo",
     "kind": "ciudad",
@@ -21,6 +32,17 @@ window.DESTINOS = [
     "license": "CC BY-SA 4.0",
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
     "source": "https://commons.wikimedia.org/wiki/File%3AJohannesburg-city-skyline-night.jpg"
+  },
+  {
+    "id": "pretoria",
+    "name": "Pretoria",
+    "kind": "ciudad",
+    "match": "Pretoria",
+    "file": "/img/destinos/pretoria.jpg",
+    "author": "Ruby D-Brown",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AUnion_Buildings_Pretoria_07.jpg"
   },
   {
     "id": "george",
@@ -100,6 +122,17 @@ window.DESTINOS = [
     "source": "https://commons.wikimedia.org/wiki/File%3ACape_Point%2C_Sud%C3%A1frica%2C_2018-07-23%2C_DD_105.jpg"
   },
   {
+    "id": "cabo-buena-esperanza",
+    "name": "Cabo de Buena Esperanza",
+    "kind": "atraccion",
+    "match": "Buena Esperanza|Cape of Good Hope",
+    "file": "/img/destinos/cabo-buena-esperanza.jpg",
+    "author": "Satdeep Gill",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AA_view_from_Cape_of_Good_Hope.jpg"
+  },
+  {
     "id": "clifton",
     "name": "Clifton Bay",
     "kind": "atraccion",
@@ -109,6 +142,17 @@ window.DESTINOS = [
     "license": "CC BY 2.0",
     "license_url": "https://creativecommons.org/licenses/by/2.0/",
     "source": "https://commons.wikimedia.org/wiki/File%3AClifton_Hot_Spot_-_South_Africa_%282417712481%29.jpg"
+  },
+  {
+    "id": "loftus",
+    "name": "Loftus Versfeld Stadium",
+    "kind": "atraccion",
+    "match": "Loftus",
+    "file": "/img/destinos/loftus.jpg",
+    "author": "Obiwansleepy",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3ALoftus_Versfeld_Game_Night.JPG"
   },
   {
     "id": "pilanesberg",
