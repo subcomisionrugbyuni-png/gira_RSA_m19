@@ -81,6 +81,14 @@ window.DESTINOS = [
     "kind": "ciudad",
     "match": "Wilderness",
     "file": "/img/destinos/wilderness.jpg",
+    "pos": "center 55%"
+  },
+  {
+    "id": "wilderness-playa",
+    "name": "Wilderness (playa)",
+    "kind": "ciudad",
+    "match": "[^\\s\\S]",
+    "file": "/img/destinos/wilderness-playa.jpg",
     "author": "M.Uebel",
     "license": "Dominio público",
     "license_url": "https://commons.wikimedia.org/wiki/File%3AWilderness_beach.jpg",
