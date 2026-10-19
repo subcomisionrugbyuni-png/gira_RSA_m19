@@ -1,5 +1,5 @@
 // Subir VERSION cada vez que se cambien index.html, app.js o styles.css
-const VERSION = 'v18';
+const VERSION = 'v19';
 const FOTOS = `fotos-${VERSION}`;
 const SHELL = ['/', '/styles.css', '/app.js', '/manifest.webmanifest', '/icons/logo.png', '/icons/icon-192.png',
   '/destinos.js', '/fonts/barlow-condensed-600.woff2', '/fonts/barlow-condensed-700.woff2', '/fonts/barlow-condensed-800.woff2'];

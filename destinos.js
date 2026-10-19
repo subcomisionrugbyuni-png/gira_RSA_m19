@@ -55,8 +55,8 @@ window.DESTINOS = [
     "name": "Pretoria",
     "kind": "ciudad",
     "match": "Pretoria",
-    "file": "/img/destinos/pretoria.jpg?v=2bde94d6",
-    "pos": "center 40%"
+    "file": "/img/destinos/pretoria.jpg?v=3104cb33",
+    "pos": "center 45%"
   },
   {
     "id": "pretoria-centro",
@@ -64,8 +64,15 @@ window.DESTINOS = [
     "kind": "ciudad",
     "match": "[^\\s\\S]",
     "file": "/img/destinos/pretoria-centro.jpg?v=4ec6f0b7",
-    "pos": "center 45%",
-    "alt": "pretoria"
+    "pos": "center 45%"
+  },
+  {
+    "id": "pretoria-union",
+    "name": "Pretoria (Union Buildings)",
+    "kind": "ciudad",
+    "match": "[^\\s\\S]",
+    "file": "/img/destinos/pretoria-union.jpg?v=2bde94d6",
+    "pos": "center 40%"
   },
   {
     "id": "george",
