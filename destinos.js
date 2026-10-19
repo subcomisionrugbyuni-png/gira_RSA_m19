@@ -50,6 +50,14 @@ window.DESTINOS = [
     "kind": "ciudad",
     "match": "Pretoria",
     "file": "/img/destinos/pretoria.jpg",
+    "pos": "center 40%"
+  },
+  {
+    "id": "pretoria-centro",
+    "name": "Pretoria (centro)",
+    "kind": "ciudad",
+    "match": "[^\\s\\S]",
+    "file": "/img/destinos/pretoria-centro.jpg",
     "author": "Jérôme Bon from Paris, France",
     "pos": "center 55%",
     "license": "CC BY 2.0",

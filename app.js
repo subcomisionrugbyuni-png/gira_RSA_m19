@@ -232,7 +232,8 @@ function dayHead(day, overline) {
 }
 
 function openCredits() {
-  document.getElementById('credits-list').replaceChildren(...DEST.map((d) => h('li', {},
+  // Solo las fotos de Wikimedia Commons llevan crédito (las propias no)
+  document.getElementById('credits-list').replaceChildren(...DEST.filter((d) => d.source).map((d) => h('li', {},
     h('b', {}, d.name), h('br'),
     `${d.author} · `, h('a', { href: d.license_url || d.source, target: '_blank', rel: 'noopener' }, d.license),
     ' · ', h('a', { href: d.source, target: '_blank', rel: 'noopener' }, 'Wikimedia Commons'))));
@@ -418,7 +419,7 @@ function renderInfo() {
       i.title ? h('h3', {}, i.title) : null,
       h('ul', { class: 'rows' }, i.content.split('\n').map((l) => l.trim()).filter(Boolean).map((l) => h('li', {}, ...linkify(l)))))));
   });
-  if (DEST.length) parts.push(h('button', { class: 'credits-link', type: 'button', onclick: openCredits }, 'Créditos de las fotos'));
+  if (DEST.some((d) => d.source)) parts.push(h('button', { class: 'credits-link', type: 'button', onclick: openCredits }, 'Créditos de las fotos'));
   return parts;
 }
 
