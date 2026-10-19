@@ -152,7 +152,15 @@ window.DESTINOS = [
     "name": "Reserva Botlierskop",
     "kind": "atraccion",
     "match": "Botlierskop",
-    "file": "/img/destinos/botlierskop.jpg?v=38d2f4c0",
+    "file": "/img/destinos/botlierskop.jpg?v=3a5ed19b",
+    "pos": "center 55%"
+  },
+  {
+    "id": "botlierskop-elefante",
+    "name": "Safari (elefante en el monte)",
+    "kind": "atraccion",
+    "match": "[^\\s\\S]",
+    "file": "/img/destinos/botlierskop-elefante.jpg?v=38d2f4c0",
     "author": "Bernard DUPONT from FRANCE",
     "pos": "center 35%",
     "license": "CC BY-SA 2.0",
