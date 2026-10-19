@@ -12,6 +12,17 @@ window.DESTINOS = [
     "source": "https://commons.wikimedia.org/wiki/File%3APonte_estaiada_Octavio_Frias_-_Sao_Paulo.jpg"
   },
   {
+    "id": "johannesburgo",
+    "name": "Johannesburgo",
+    "kind": "ciudad",
+    "match": "Johannesburgo|Johannesburg",
+    "file": "/img/destinos/johannesburgo.jpg",
+    "author": "Frankbel",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AJohannesburg-city-skyline-night.jpg"
+  },
+  {
     "id": "george",
     "name": "George",
     "kind": "ciudad",
@@ -45,6 +56,17 @@ window.DESTINOS = [
     "source": "https://commons.wikimedia.org/wiki/File%3A2018-08-03_knysna_mouth.jpg"
   },
   {
+    "id": "cango-caves",
+    "name": "Cango Caves",
+    "kind": "atraccion",
+    "match": "Cango",
+    "file": "/img/destinos/cango-caves.jpg",
+    "author": "Satdeep Gill",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AInside_Cango_Caves.jpg"
+  },
+  {
     "id": "thesen-island",
     "name": "Thesen Island y laguna de Knysna",
     "kind": "atraccion",
@@ -65,5 +87,27 @@ window.DESTINOS = [
     "license": "CC BY-SA 2.0",
     "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
     "source": "https://commons.wikimedia.org/wiki/File%3ABotlierskop_Landscape_2.jpg"
+  },
+  {
+    "id": "cape-point",
+    "name": "Cape Point",
+    "kind": "atraccion",
+    "match": "Cape Point",
+    "file": "/img/destinos/cape-point.jpg",
+    "author": "creator:Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3ACape_Point%2C_Sud%C3%A1frica%2C_2018-07-23%2C_DD_105.jpg"
+  },
+  {
+    "id": "pilanesberg",
+    "name": "Pilanesberg (safari opcional)",
+    "kind": "atraccion",
+    "match": "Pilanesberg",
+    "file": "/img/destinos/pilanesberg.jpg",
+    "author": "User:Mike Peel/Attribution|other_authors=",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AZebra_at_Pilanesberg_National_Park_10.jpg"
   }
 ];
