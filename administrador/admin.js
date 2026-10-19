@@ -306,7 +306,7 @@ function renderInfo() {
 
 function renderVestimenta() {
   return [
-    h('p', { class: 'hint' }, 'Vestimentas que se eligen en cada bloque del cronograma. Las prendas y la explicación son opcionales: si están vacías, en la app se ve solo el nombre.'),
+    h('p', { class: 'hint' }, 'Vestimentas que se eligen en cada bloque del cronograma. En la app se ve solo el nombre.'),
     state.uniforms.map((u, i) => h('article', { class: 'card' },
       h('div', { class: 'block-head' },
         h('div', { class: 'row', style: 'grid-template-columns:1fr' }, field('Nombre', input(u, 'name'))),
@@ -320,11 +320,10 @@ function renderVestimenta() {
             setDirty(); render();
           },
         }, '✕')),
-      field('Prendas', area(u, 'items', { placeholder: 'Ej.: Chomba blanca, pantalón azul, zapatillas negras' })),
-      field('Explicación', area(u, 'detail')))),
+    )),
     h('button', {
       class: 'btn add', type: 'button',
-      onclick: () => { state.uniforms.push({ id: uid(), name: 'Nueva vestimenta', items: '', detail: '' }); setDirty(); render(); },
+      onclick: () => { state.uniforms.push({ id: uid(), name: 'Nueva vestimenta' }); setDirty(); render(); },
     }, '+ Agregar vestimenta'),
   ];
 }

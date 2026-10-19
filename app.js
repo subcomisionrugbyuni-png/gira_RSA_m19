@@ -115,7 +115,6 @@ const ICONS = {
   bell: '<path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10 21a2 2 0 0 0 4 0"/>',
   check: '<path d="m5 12.5 4.5 4.5L19 7.5"/>',
   chevron: '<path d="m6 9 6 6 6-6"/>',
-  right: '<path d="m9 6 6 6-6 6"/>',
   arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>',
   shield: '<path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6z"/><path d="M12 9v6M9 12h6"/>',
   ball: '<ellipse cx="12" cy="12" rx="9.5" ry="5.6" transform="rotate(-40 12 12)"/><path d="m8.6 15.4 6.8-6.8M10.3 11.7l2 2M12.3 9.7l2 2"/>',
@@ -133,22 +132,10 @@ function icon(name, cls = 'ic') {
   return svg;
 }
 
-// Solo se puede tocar si tiene prendas o explicación cargadas
-const hasUniformInfo = (u) => !!(u.items || u.detail);
-
+// Vestimenta: solo el nombre
 function uniformMeta(id) {
   const u = uniformOf(id);
-  if (!u) return null;
-  if (!hasUniformInfo(u)) return h('span', { class: 'meta' }, icon('hanger'), u.name);
-  return h('button', { class: 'meta', type: 'button', onclick: () => openUniform(u) }, icon('hanger'), u.name);
-}
-
-function openUniform(u) {
-  document.getElementById('ud-title').textContent = u.name;
-  const items = document.getElementById('ud-items');
-  items.textContent = u.items;
-  document.getElementById('ud-detail').replaceChildren(...linkify(u.detail || ''));
-  document.getElementById('uniform-dialog').showModal();
+  return u ? h('span', { class: 'meta' }, icon('hanger'), u.name) : null;
 }
 
 function itemTags(e, cls = 'tags') {
@@ -257,9 +244,7 @@ function renderHoy() {
       !current && dateKey(hero.start) !== dateKey(t)
         ? h('div', { class: 'hero-cell' }, h('span', {}, 'Día'), h('b', {}, fmtDate(dateKey(hero.start), { weekday: 'long', day: 'numeric' })))
         : null,
-      u ? h('div', { class: 'hero-cell' }, h('span', {}, 'Vestimenta'), hasUniformInfo(u)
-        ? h('button', { class: 'cell-btn', type: 'button', onclick: () => openUniform(u) }, u.name, icon('right'))
-        : h('b', {}, u.name)) : null,
+      u ? h('div', { class: 'hero-cell' }, h('span', {}, 'Vestimenta'), h('b', {}, u.name)) : null,
     ].filter(Boolean);
     if (cells.length % 2) cells[cells.length - 1].classList.add('wide');
     if (hero.place) cells.push(h('div', { class: 'hero-cell wide' }, h('span', {}, 'Lugar'), h('b', {}, hero.place)));
