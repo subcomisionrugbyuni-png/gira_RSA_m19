@@ -177,6 +177,28 @@ window.DESTINOS = [
     "source": "https://commons.wikimedia.org/wiki/File%3AClifton_Hot_Spot_-_South_Africa_%282417712481%29.jpg"
   },
   {
+    "id": "waterfront",
+    "name": "V&A Waterfront",
+    "kind": "atraccion",
+    "match": "Waterfront",
+    "file": "/img/destinos/waterfront.jpg",
+    "author": "Josep M. Gracia",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3ACT_-_V%26A_Waterfront_with_Table_Mountain%2C_Cape_Town%2C_South_Africa%2C_2017.jpg"
+  },
+  {
+    "id": "garden-route",
+    "name": "Ruta de la costa (Garden Route)",
+    "kind": "atraccion",
+    "match": "Garden Route|Ruta Jard[íi]n|por la costa",
+    "file": "/img/destinos/garden-route.jpg",
+    "author": "Bernard DUPONT from FRANCE",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AWilderness_Beach_on_Indian_Ocean_..._%2844602808760%29.jpg"
+  },
+  {
     "id": "loftus",
     "name": "Loftus Versfeld Stadium",
     "kind": "atraccion",
