@@ -6,7 +6,7 @@ const MIN = 60e3;
 let data = null;
 let lastText = '';
 let view = 'hoy';
-let zone = store('gira-zona') || (new Date().getTimezoneOffset() === 180 ? 'AR' : 'SA');
+let zone = store('gira-zona') || 'SA'; // por defecto, hora de Sudáfrica
 
 // ?ahora=2026-11-17T10:30 simula ese momento (hora de Sudáfrica)
 const simulated = (() => {
