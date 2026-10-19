@@ -94,10 +94,21 @@ window.DESTINOS = [
     "kind": "atraccion",
     "match": "Cape Point",
     "file": "/img/destinos/cape-point.jpg",
-    "author": "creator:Diego Delso",
+    "author": "Diego Delso",
     "license": "CC BY-SA 4.0",
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
     "source": "https://commons.wikimedia.org/wiki/File%3ACape_Point%2C_Sud%C3%A1frica%2C_2018-07-23%2C_DD_105.jpg"
+  },
+  {
+    "id": "clifton",
+    "name": "Clifton Bay",
+    "kind": "atraccion",
+    "match": "Clifton",
+    "file": "/img/destinos/clifton.jpg",
+    "author": "South African Tourism from South Africa",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AClifton_Hot_Spot_-_South_Africa_%282417712481%29.jpg"
   },
   {
     "id": "pilanesberg",
@@ -105,9 +116,20 @@ window.DESTINOS = [
     "kind": "atraccion",
     "match": "Pilanesberg",
     "file": "/img/destinos/pilanesberg.jpg",
-    "author": "User:Mike Peel/Attribution|other_authors=",
+    "author": "Mike Peel",
     "license": "CC BY-SA 4.0",
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
     "source": "https://commons.wikimedia.org/wiki/File%3AZebra_at_Pilanesberg_National_Park_10.jpg"
+  },
+  {
+    "id": "sun-city",
+    "name": "Sun City (opcional)",
+    "kind": "atraccion",
+    "match": "Sun City",
+    "file": "/img/destinos/sun-city.jpg",
+    "author": "South African Tourism from South Africa",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AThe_Palace_of_the_Lost_City%2C_Sun_City%2C_North_West%2C_South_Africa_%2820341967548%29.jpg"
   }
 ];
