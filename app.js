@@ -218,9 +218,10 @@ function dayImage(day) {
 }
 function itemImage(e) {
   if (e.image === 'none') return null;
-  return destById(e.image) || matchDest(`${e.activity} ${e.place}`, 'atraccion');
+  return destById(e.image) || matchDest(e.activity, 'atraccion'); // solo por la actividad (no el almuerzo en la reserva)
 }
-const photo = (d, cls) => h('img', { class: cls, src: d.file, alt: d.name, loading: 'lazy', decoding: 'async' });
+// pos: encuadre de la foto cuando se recorta (ej. 'center 70%')
+const photo = (d, cls) => h('img', { class: cls, src: d.file, alt: d.name, loading: 'lazy', decoding: 'async', style: d.pos ? `object-position:${d.pos}` : null });
 
 // Encabezado de un día: con portada si tiene imagen
 function dayHead(day, overline) {

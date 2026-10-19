@@ -50,10 +50,11 @@ window.DESTINOS = [
     "kind": "ciudad",
     "match": "Pretoria",
     "file": "/img/destinos/pretoria.jpg",
-    "author": "Ruby D-Brown",
-    "license": "CC BY 4.0",
-    "license_url": "https://creativecommons.org/licenses/by/4.0/",
-    "source": "https://commons.wikimedia.org/wiki/File%3AUnion_Buildings_Pretoria_07.jpg"
+    "author": "JMK",
+    "pos": "center 45%",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AJakarandas_in_Olivierstraat%2C_Pretoria%2C_9_Okt_2022.jpg"
   },
   {
     "id": "george",
@@ -127,10 +128,11 @@ window.DESTINOS = [
     "kind": "atraccion",
     "match": "Botlierskop",
     "file": "/img/destinos/botlierskop.jpg",
-    "author": "Bernard DUPONT",
+    "author": "Bernard DUPONT from FRANCE",
+    "pos": "center 35%",
     "license": "CC BY-SA 2.0",
     "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
-    "source": "https://commons.wikimedia.org/wiki/File%3ABotlierskop_Landscape_2.jpg"
+    "source": "https://commons.wikimedia.org/wiki/File%3ASavanna_Elephant_%28Loxodonta_africana%29_bull_spraying_dust_..._%2852661359120%29.jpg"
   },
   {
     "id": "table-mountain",
@@ -199,15 +201,16 @@ window.DESTINOS = [
     "source": "https://commons.wikimedia.org/wiki/File%3ACT_-_V%26A_Waterfront_with_Table_Mountain%2C_Cape_Town%2C_South_Africa%2C_2017.jpg"
   },
   {
-    "id": "garden-route",
-    "name": "Ruta de la costa (Garden Route)",
+    "id": "costa",
+    "name": "Costa de Ciudad del Cabo (Chapman's Peak)",
     "kind": "atraccion",
-    "match": "Garden Route|Ruta Jard[íi]n|por la costa",
-    "file": "/img/destinos/garden-route.jpg",
-    "author": "Bernard DUPONT from FRANCE",
-    "license": "CC BY-SA 2.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
-    "source": "https://commons.wikimedia.org/wiki/File%3AWilderness_Beach_on_Indian_Ocean_..._%2844602808760%29.jpg"
+    "match": "Chapman|por la costa|Garden Route|Ruta Jard[íi]n",
+    "file": "/img/destinos/costa.jpg",
+    "author": "kallerna",
+    "pos": "center 65%",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AChapmans_Peak_Drive_3.jpg"
   },
   {
     "id": "loftus",
