@@ -330,7 +330,7 @@ main > section:not([hidden]) { animation: enter .22s ease both; }
   background: var(--surface); border: 1px solid var(--line);
   border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 10px; overflow: hidden;
 }
-.day > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 14px; padding: 12px 14px; min-height: 74px; }
+.day > summary { list-style: none; cursor: pointer; }
 .day > summary::-webkit-details-marker { display: none; }
 .day > summary:active { background: var(--soft); }
 .date-badge { width: 52px; flex: none; text-align: center; border-radius: 13px; background: var(--soft); padding: 6px 0 5px; }
@@ -436,6 +436,32 @@ dialog .close:active { transform: scale(.99); }
 .steps { margin: 0 0 16px; padding-left: 22px; }
 .steps li { margin: 10px 0; line-height: 1.45; }
 .share-ic { width: 18px; height: 18px; vertical-align: -3px; color: #0a84ff; }
+
+/* ---------- Imágenes de destinos ---------- */
+.cover-head { position: relative; margin: 26px 0 12px; border-radius: var(--radius); overflow: hidden; background: var(--soft); }
+.cover-head:first-child { margin-top: 4px; }
+.cover-img { display: block; width: 100%; aspect-ratio: 16 / 8; object-fit: cover; }
+.cover-text {
+  position: absolute; inset: auto 0 0 0; padding: 40px 16px 14px; color: #fff;
+  background: linear-gradient(transparent, rgba(0, 0, 0, .72));
+}
+.cover-text .overline { color: rgba(255, 255, 255, .85); }
+.cover-text h2 { margin: 3px 0 0; font-family: var(--font-display); font-weight: 700; font-size: 1.8rem; line-height: 1.05; text-shadow: 0 1px 8px rgba(0, 0, 0, .35); }
+.hero.has-img { padding-top: 0; }
+.hero-img { display: block; width: calc(100% + 32px); margin: 0 -16px 16px; aspect-ratio: 16 / 8; object-fit: cover; }
+.tl-photo { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 12px; margin-top: 10px; background: var(--soft); }
+.preview-img { display: block; width: 100%; aspect-ratio: 16 / 7; object-fit: cover; }
+.day > summary { display: block; padding: 0; min-height: 0; }
+.day-row { display: flex; align-items: center; gap: 14px; padding: 12px 14px; min-height: 74px; }
+.day-cover { display: block; width: 100%; aspect-ratio: 16 / 6; object-fit: cover; background: var(--soft); }
+.credits-link {
+  display: block; margin: 22px auto 6px; border: 0; background: none; padding: 10px;
+  color: var(--muted); font-size: .82rem; text-decoration: underline; text-underline-offset: 3px;
+}
+.credits { list-style: none; margin: 0 0 14px; padding: 0; font-size: .86rem; color: var(--muted); }
+.credits li { padding: 9px 0; border-top: 1px solid var(--line); line-height: 1.4; overflow-wrap: anywhere; }
+.credits li:first-child { border-top: 0; }
+.credits b { color: var(--ink); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }

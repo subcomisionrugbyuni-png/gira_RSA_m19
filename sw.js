@@ -1,7 +1,7 @@
 // Subir VERSION cada vez que se cambien index.html, app.js o styles.css
-const VERSION = 'v11';
+const VERSION = 'v12';
 const SHELL = ['/', '/styles.css', '/app.js', '/manifest.webmanifest', '/icons/logo.png', '/icons/icon-192.png',
-  '/fonts/barlow-condensed-600.woff2', '/fonts/barlow-condensed-700.woff2', '/fonts/barlow-condensed-800.woff2'];
+  '/destinos.js', '/fonts/barlow-condensed-600.woff2', '/fonts/barlow-condensed-700.woff2', '/fonts/barlow-condensed-800.woff2'];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(VERSION).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));
@@ -18,8 +18,8 @@ self.addEventListener('fetch', (e) => {
   if (e.request.method !== 'GET' || url.origin !== location.origin) return;
   if (url.pathname.startsWith('/administrador') || url.pathname === '/api/admin' || url.pathname === '/api/data') return;
 
-  // Fotos: una vez descargadas quedan guardadas
-  if (url.pathname === '/api/photo') {
+  // Fotos (las del panel y las de destinos): una vez descargadas quedan guardadas
+  if (url.pathname === '/api/photo' || url.pathname.startsWith('/img/')) {
     e.respondWith(caches.open('fotos').then(async (c) => {
       const hit = await c.match(e.request);
       if (hit) return hit;

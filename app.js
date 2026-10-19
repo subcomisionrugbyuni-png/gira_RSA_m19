@@ -162,6 +162,7 @@ function timeline(dayEvents, t) {
           e.place ? h('span', { class: 'meta' }, icon('pin'), e.place + dayShift(e)) : null,
           uniformMeta(e.uniform)) : null,
         itemTags(e),
+        itemImage(e) ? photo(itemImage(e), 'tl-photo') : null,
         e.detail ? h('p', { class: 'tl-detail' }, ...linkify(e.detail)) : null,
       ));
   }));
@@ -188,6 +189,53 @@ function noticeWhen(n) {
 
 function emptyState(title, text, ic = 'calendar') {
   return h('div', { class: 'empty' }, h('div', { class: 'empty-ic' }, icon(ic)), h('strong', {}, title), h('p', {}, text));
+}
+
+/* ---------- imágenes de destinos ---------- */
+
+const DEST = window.DESTINOS || [];
+const destById = (id) => DEST.find((d) => d.id === id);
+
+// El lugar que aparece más a la derecha del texto (ej.: "Pretoria → George → Wilderness" → Wilderness)
+function matchDest(text, kind) {
+  let best = null;
+  let bestPos = -1;
+  for (const d of DEST) {
+    if (kind && d.kind !== kind) continue;
+    const re = new RegExp(d.match, 'gi');
+    let m;
+    let last = -1;
+    while ((m = re.exec(text))) last = m.index;
+    if (last > bestPos) { bestPos = last; best = d; }
+  }
+  return best;
+}
+
+// 'none' = sin imagen; un id elegido en el panel; si no, se reconoce por el texto
+function dayImage(day) {
+  if (day.image === 'none') return null;
+  return destById(day.image) || matchDest(day.title || '');
+}
+function itemImage(e) {
+  if (e.image === 'none') return null;
+  return destById(e.image) || matchDest(`${e.activity} ${e.place}`, 'atraccion');
+}
+const photo = (d, cls) => h('img', { class: cls, src: d.file, alt: d.name, loading: 'lazy', decoding: 'async' });
+
+// Encabezado de un día: con portada si tiene imagen
+function dayHead(day, overline) {
+  const img = dayImage(day);
+  if (!img) return h('div', { class: 'sec-head' }, h('span', { class: 'overline' }, overline), h('h2', {}, day.title || 'Cronograma'));
+  return h('div', { class: 'cover-head' }, photo(img, 'cover-img'),
+    h('div', { class: 'cover-text' }, h('span', { class: 'overline' }, overline), h('h2', {}, day.title || 'Cronograma')));
+}
+
+function openCredits() {
+  document.getElementById('credits-list').replaceChildren(...DEST.map((d) => h('li', {},
+    h('b', {}, d.name), h('br'),
+    `${d.author} · `, h('a', { href: d.license_url || d.source, target: '_blank', rel: 'noopener' }, d.license),
+    ' · ', h('a', { href: d.source, target: '_blank', rel: 'noopener' }, 'Wikimedia Commons'))));
+  document.getElementById('credits-dialog').showModal();
 }
 
 const longDate = (key) => fmtDate(key, { weekday: 'long', day: 'numeric', month: 'long' });
@@ -252,7 +300,9 @@ function renderHoy() {
       ? Math.min(100, Math.max(0, ((t - current.start) / (current.until - current.start)) * 100))
       : null;
 
-    parts.push(h('section', { class: `hero${current ? ' now' : ''}` },
+    const heroImg = itemImage(hero);
+    parts.push(h('section', { class: `hero${current ? ' now' : ''}${heroImg ? ' has-img' : ''}` },
+      heroImg ? photo(heroImg, 'hero-img') : null,
       h('div', { class: 'hero-top' },
         h('span', { class: 'kicker' }, current ? h('i', { class: 'live-dot' }) : null, current ? 'Ahora' : 'Lo que sigue'),
         count ? h('span', { class: 'hero-count' }, count) : null),
@@ -270,9 +320,7 @@ function renderHoy() {
   if (day) {
     const dayEvents = evs.filter((e) => e.day === day);
     const isToday = day.date === dateKey(t, 'SA') || day.date === dateKey(t, 'AR') || current;
-    parts.push(h('div', { class: 'sec-head' },
-      h('span', { class: 'overline' }, `${isToday ? 'Hoy' : 'Próximo día'} · ${longDate(day.date)}`),
-      h('h2', {}, day.title || 'Cronograma')));
+    parts.push(dayHead(day, `${isToday ? 'Hoy' : 'Próximo día'} · ${longDate(day.date)}`));
     parts.push(h('section', { class: 'card' }, timeline(dayEvents, t), dayExtras(day)));
 
     const idx = data.days.indexOf(day);
@@ -282,7 +330,9 @@ function renderHoy() {
       parts.push(h('div', { class: 'sec-head' },
         h('span', { class: 'overline' }, longDate(tomorrow.date)),
         h('h2', {}, tomorrow.title || 'Día siguiente')));
+      const tomorrowImg = dayImage(tomorrow);
       parts.push(h('section', { class: 'card preview' },
+        tomorrowImg ? photo(tomorrowImg, 'preview-img') : null,
         h('div', { class: 'preview-row' },
           h('div', { class: 'preview-time' }, fmtTime(first.start)),
           h('div', { class: 'preview-body' },
@@ -311,6 +361,8 @@ function renderDias(openId) {
     const isToday = day.date === todayKey;
     return h('details', { class: `day${isToday ? ' today' : ''}`, id: `dia-${day.id}`, open: day.id === openId || isToday },
       h('summary', {},
+        dayImage(day) ? photo(dayImage(day), 'day-cover') : null,
+        h('div', { class: 'day-row' },
         h('div', { class: 'date-badge' },
           h('span', {}, date.toLocaleDateString('es-AR', { timeZone: 'UTC', weekday: 'short' }).replace('.', '')),
           h('b', {}, date.getUTCDate())),
@@ -318,7 +370,7 @@ function renderDias(openId) {
           h('b', {}, day.title || 'Día de gira'),
           h('small', {}, longDate(day.date))),
         isToday ? h('span', { class: 'pill now' }, 'Hoy') : null,
-        icon('chevron', 'ic chev')),
+        icon('chevron', 'ic chev'))),
       h('div', { class: 'day-body' },
         timeline(evs.filter((e) => e.day === day), t),
         dayExtras(day)));
@@ -365,6 +417,7 @@ function renderInfo() {
       i.title ? h('h3', {}, i.title) : null,
       h('ul', { class: 'rows' }, i.content.split('\n').map((l) => l.trim()).filter(Boolean).map((l) => h('li', {}, ...linkify(l)))))));
   });
+  if (DEST.length) parts.push(h('button', { class: 'credits-link', type: 'button', onclick: openCredits }, 'Créditos de las fotos'));
   return parts;
 }
 

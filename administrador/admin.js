@@ -79,7 +79,7 @@ function area(obj, key, attrs = {}) {
 
 function select(obj, key, options, onchange) {
   return h('select', { onchange: (e) => { obj[key] = e.target.value; setDirty(); onchange?.(e); } },
-    options.map(([v, label]) => h('option', { value: v, selected: obj[key] === v }, label)));
+    options.map(([v, label]) => h('option', { value: v, selected: (obj[key] ?? '') === v }, label)));
 }
 
 function check(obj, key, label, onchange) {
@@ -90,6 +90,26 @@ function check(obj, key, label, onchange) {
 }
 
 const field = (label, el) => h('label', { class: 'field' }, h('span', {}, label), el);
+
+// Imágenes de destinos (catálogo en /destinos.js)
+const DEST = window.DESTINOS || [];
+const KIND = { ciudad: 'Ciudad', atraccion: 'Atracción' };
+
+function imageField(obj, label) {
+  const preview = h('img', { class: 'img-preview', alt: '' });
+  const update = () => {
+    const d = DEST.find((x) => x.id === obj.image);
+    preview.hidden = !d;
+    if (d) preview.src = d.file;
+  };
+  const sel = select(obj, 'image', [
+    ['', 'Automática (según el texto)'],
+    ['none', 'Sin imagen'],
+    ...DEST.map((d) => [d.id, `${KIND[d.kind]}: ${d.name}`]),
+  ], update);
+  update();
+  return h('div', {}, field(label, sel), preview);
+}
 
 function move(arr, i, delta) {
   const j = i + delta;
@@ -155,6 +175,7 @@ function dayBody(day) {
       field('Zona horaria', select(it, 'zone', [['SA', 'Hora SA'], ['AR', 'Hora AR']]))),
     field('Detalle / explicación', area(it, 'detail', { rows: 2 })),
     field('Link de mapa (opcional)', input(it, 'map', { type: 'url', placeholder: 'https://maps.google.com/…' })),
+    imageField(it, 'Imagen (solo para excursiones o lugares)'),
     h('div', { class: 'checks' },
       check(it, 'confirmed', 'Confirmado'),
       check(it, 'hidden', 'Oculto', (e) => e.target.closest('.block').classList.toggle('hid', e.target.checked))));
@@ -164,6 +185,7 @@ function dayBody(day) {
     h('div', { class: 'row' },
       field('Fecha', input(day, 'date', { type: 'date' })),
       field('Título del día', input(day, 'title', { placeholder: 'Ej.: Ciudad del Cabo · 2.º partido' }))),
+    imageField(day, 'Imagen de portada'),
 
     h('h3', { class: 'h' }, 'Cronograma'),
     day.items.map(block),
@@ -193,14 +215,6 @@ function dayBody(day) {
     area(day, 'notes', { rows: 3, placeholder: 'Texto libre para el día (opcional)' }),
 
     h('div', { class: 'footer-actions' },
-      h('button', {
-        class: 'btn danger', type: 'button',
-        onclick: () => {
-          if (!confirm(`¿Borrar el día "${day.title || day.date}" con todo su contenido?`)) return;
-          state.days.splice(state.days.indexOf(day), 1);
-          setDirty(); render();
-        },
-      }, 'Borrar día'),
       h('button', { class: 'btn', type: 'button', onclick: () => { openDays.delete(day.id); render(); } }, 'Cerrar')));
 }
 
