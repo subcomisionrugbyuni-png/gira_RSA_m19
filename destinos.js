@@ -122,6 +122,17 @@ window.DESTINOS = [
     "source": "https://commons.wikimedia.org/wiki/File%3ABotlierskop_Landscape_2.jpg"
   },
   {
+    "id": "table-mountain",
+    "name": "Table Mountain",
+    "kind": "atraccion",
+    "match": "Table Mountain|Monta[ñn]a de la Mesa",
+    "file": "/img/destinos/table-mountain.jpg",
+    "author": "Danie van der Merwe from Cape Town, South Africa",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3ATable_Mountain_DanieVDM.jpg"
+  },
+  {
     "id": "cape-point",
     "name": "Cape Point",
     "kind": "atraccion",
