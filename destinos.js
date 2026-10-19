@@ -78,6 +78,17 @@ window.DESTINOS = [
     "source": "https://commons.wikimedia.org/wiki/File%3A2018-08-03_knysna_mouth.jpg"
   },
   {
+    "id": "ciudad-del-cabo",
+    "name": "Ciudad del Cabo",
+    "kind": "ciudad",
+    "match": "Ciudad del Cabo|Cape Town",
+    "file": "/img/destinos/ciudad-del-cabo.jpg",
+    "author": "Matti Blume",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AParagliding%2C_Cape_Town_%28P1050339%29.jpg"
+  },
+  {
     "id": "cango-caves",
     "name": "Cango Caves",
     "kind": "atraccion",
