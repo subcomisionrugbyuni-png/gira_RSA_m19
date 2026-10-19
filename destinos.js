@@ -12,6 +12,17 @@ window.DESTINOS = [
     "source": "https://commons.wikimedia.org/wiki/File%3APonte_estaiada_Octavio_Frias_-_Sao_Paulo.jpg"
   },
   {
+    "id": "george",
+    "name": "George",
+    "kind": "ciudad",
+    "match": "George",
+    "file": "/img/destinos/george.jpg",
+    "author": "Bernard DUPONT from FRANCE",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AGeorge_seen_from_Outeniqua_Pass_%2831974275434%29.jpg"
+  },
+  {
     "id": "wilderness",
     "name": "Wilderness",
     "kind": "ciudad",
@@ -32,5 +43,27 @@ window.DESTINOS = [
     "license": "CC BY-SA 4.0",
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
     "source": "https://commons.wikimedia.org/wiki/File%3A2018-08-03_knysna_mouth.jpg"
+  },
+  {
+    "id": "thesen-island",
+    "name": "Thesen Island y laguna de Knysna",
+    "kind": "atraccion",
+    "match": "Thesen|kayak",
+    "file": "/img/destinos/thesen-island.jpg",
+    "author": "Josep M. Gracia",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AKNYSNA_-_Knysna_Lagoon_near_Thesen_Island%2C_South_Africa%2C_2017.jpg"
+  },
+  {
+    "id": "botlierskop",
+    "name": "Reserva Botlierskop",
+    "kind": "atraccion",
+    "match": "Botlierskop",
+    "file": "/img/destinos/botlierskop.jpg",
+    "author": "Bernard DUPONT",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3ABotlierskop_Landscape_2.jpg"
   }
 ];
